@@ -14,16 +14,13 @@ docker build -t lede .
 docker run --rm -it -v $(pwd)/data:/root lede
 git clone --depth 1 https://github.com/coolsnowwolf/lede -b master openwrt
 
-cd openwrt/package
-rm -rf lean/luci-theme-argon
-git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git
-
-cd ../openwrt
+cd openwrt
 ../diy-part1.sh
 ./scripts/feeds update -a 
 ./scripts/feeds install -a
 ../diy-part2.sh
 
+cp ../.config .
 make menuconfig 
 
 #Download package
