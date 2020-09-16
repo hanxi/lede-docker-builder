@@ -11,7 +11,7 @@ docker build -t lede .
 ### run container and clone lede code
 
 ```
-docker run --rm -it -v $(pwd)/data:/root lede
+docker run --rm -it -v $(pwd)/../data:/workdir lede
 git clone --depth 1 https://github.com/coolsnowwolf/lede -b master openwrt
 
 cd openwrt
